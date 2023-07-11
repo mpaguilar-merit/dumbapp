@@ -25,5 +25,5 @@ jobs:
           path: build
           
       - name: Run test script
-        run: ./qtest.sh
+        run: ./build/qtest.sh
         shell: bash
