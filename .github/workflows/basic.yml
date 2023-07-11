@@ -22,6 +22,7 @@ jobs:
         with:
           repository: 'mpaguilar-merit/dumbops'
           token: ${{ secrets.REPO_KEY }}
+          path: build
           
       - name: Run test script
         run: ./qtest.sh
