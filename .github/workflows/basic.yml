@@ -54,7 +54,7 @@ jobs:
           echo "ECR_REPOSITORY = $ECR_REPOSITORY"
           cd build
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG .
-          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG" >> $GITHUB_OUTPUT
       
         
