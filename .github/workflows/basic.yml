@@ -13,10 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v3
         with:
-          path: app
-        
+          path: app        
 
       - uses: actions/checkout@v3
         with:
@@ -24,6 +24,9 @@ jobs:
           token: ${{ secrets.REPO_KEY }}
           path: build
           
+      # Sets up the image tag
+      # moves ./app to ./build/app
+      # copy ./configs
       - name: Prepare build environment
         run: ./build/prep_build.sh
         shell: bash
@@ -46,9 +49,10 @@ jobs:
           # IMAGE_TAG: ${{ github.sha }}
 
         run: |
-          echo $IMG_TAG
-        #  docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG .
-        #  docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG
-        #  echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG" >> $GITHUB_OUTPUT
+          echo "IMG_TAG = $IMG_TAG"
+          cd build
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG .
+          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG" >> $GITHUB_OUTPUT
       
         
