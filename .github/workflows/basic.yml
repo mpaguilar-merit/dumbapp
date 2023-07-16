@@ -26,7 +26,7 @@ jobs:
           
       # Sets up the image tag
       # moves ./app to ./build/app
-      # copy ./configs
+      # copy ./config dir over ./build/app
       - name: Prepare build environment
         run: ./build/prep_build.sh
         shell: bash
@@ -50,6 +50,8 @@ jobs:
 
         run: |
           echo "IMG_TAG = $IMG_TAG"
+          echo "ECR_REGISTRY = $ECR_REGISTRY"
+          echo "ECR_REPOSITORY = $ECR_REPOSITORY"
           cd build
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG .
           # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMG_TAG
