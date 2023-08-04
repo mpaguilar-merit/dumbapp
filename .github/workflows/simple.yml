@@ -4,14 +4,23 @@ on:
 
 
 jobs:
-  build-staging:
+  some-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build something
+        id: build-something
+        run: |
+          echo "Building something"
+
+  some-deploy:
+
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - name: Build, tag, and push image
+      - name: Deploy something
         id: say-something
 
         run: |
-          echo "This is staging build"
+          echo "deploying something"
       
         
