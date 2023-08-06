@@ -13,6 +13,10 @@ jobs:
           echo "Building something"
           echo "someval=This is some value" >> $GITHUB_OUTPUT
 
+      - name: echo-it
+        run: |
+          echo "someval: ${{ steps.build-something.someval}}"
+
     outputs:
       some-value: ${{ steps.build-something.someval }}
 
@@ -26,7 +30,7 @@ jobs:
 
         run: |
           echo "deploying something"
-          echo "some value: ${{ needs.some-build.outputs.someval }}"
+          echo "some value: ${{ needs.some-build.outputs.some-value }}"
     needs: some-build
       
         
