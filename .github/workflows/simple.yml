@@ -14,7 +14,7 @@ jobs:
           echo "someval=This is some value" >> "$GITHUB_OUTPUT"
 
     outputs:
-      some-value: steps.build-something.someval
+      some-value: ${{ steps.build-something.someval }}
 
   some-deploy:
 
