@@ -11,9 +11,10 @@ jobs:
         id: build-something
         run: |
           echo "Building something"
+          echo "someval=This is some value" >> "$GITHUB_OUTPUT"
 
     outputs:
-      some-value: "This is a value"
+      some-value: steps.build-something.someval
 
   some-deploy:
 
