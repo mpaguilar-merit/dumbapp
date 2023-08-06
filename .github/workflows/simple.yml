@@ -12,6 +12,9 @@ jobs:
         run: |
           echo "Building something"
 
+    outputs:
+      some-value: "This is a value"
+
   some-deploy:
 
     runs-on: ubuntu-latest
@@ -22,6 +25,7 @@ jobs:
 
         run: |
           echo "deploying something"
+          echo "${{ needs.some-build.outputs.some-value }}""
     needs: some-build
       
         
