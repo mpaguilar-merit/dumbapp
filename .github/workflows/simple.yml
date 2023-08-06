@@ -11,7 +11,7 @@ jobs:
         id: build-something
         run: |
           echo "Building something"
-          echo "someval=This is some value" >> "$GITHUB_OUTPUT"
+          echo "someval=This is some value" >> $GITHUB_OUTPUT
 
     outputs:
       some-value: ${{ steps.build-something.someval }}
