@@ -15,10 +15,10 @@ jobs:
 
       - name: echo-it
         run: |
-          echo "someval: ${{ steps.build-something.someval}}"
+          echo "someval: ${{ steps.build-something.outputs.someval}}"
 
     outputs:
-      some-value: ${{ steps.build-something.someval }}
+      some-value: ${{ steps.build-something.outputs.someval }}
 
   some-deploy:
 
