@@ -7,7 +7,7 @@ jobs:
   some-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build something
+      - name: build-something
         id: build-something
         run: |
           echo "Building something"
