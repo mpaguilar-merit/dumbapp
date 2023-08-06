@@ -22,5 +22,6 @@ jobs:
 
         run: |
           echo "deploying something"
+    needs: some-build
       
         
